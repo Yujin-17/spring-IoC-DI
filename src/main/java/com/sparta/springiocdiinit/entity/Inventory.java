@@ -1,6 +1,7 @@
 package com.sparta.springiocdiinit.entity;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -8,20 +9,18 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Getter
-@Entity(name = "orders")
-public class Order {
+@Entity
+@NoArgsConstructor
+public class Inventory {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String foodName;
-    private int price;
+    private String ingredient;
     private int amount;
 
-    public Order(){}
-
-    public Order(String foodName, int price, int amount) {
-        this.foodName = foodName;
-        this.price = price;
+    public Inventory(Long id, String ingredient, int amount) {
+        this.id = id;
+        this.ingredient = ingredient;
         this.amount = amount;
     }
 }
